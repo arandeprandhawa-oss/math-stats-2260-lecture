@@ -1,0 +1,35 @@
+{
+    "title":  "Math stats 2260 lecture",
+    "layout":  "tabs",
+    "url":  "https://arandeprandhawa-oss.github.io/math-stats-2260-lecture/",
+    "tabs":  [
+                 {
+                     "label":  "MATH 2260 lecture notes",
+                     "file":  "pages/index.html"
+                 },
+                 {
+                     "label":  "Lecture 1 · Sampling and Data",
+                     "file":  "pages/Lecture 1 - Sampling, Types of Data and Frequency Distributions.html"
+                 },
+                 {
+                     "label":  "Lecture 2 · Shape, Center and Spread",
+                     "file":  "pages/Lecture 2 - Shapes of Distributions, Mean, Median and Standard Deviation.html"
+                 },
+                 {
+                     "label":  "Lecture 3 · Box Plots, Sets and Axioms",
+                     "file":  "pages/Lecture 3 - Quartiles, Box Plots, Sets and Probability Axioms.html"
+                 },
+                 {
+                     "label":  "Lecture 4 · Probability Rules and Counting",
+                     "file":  "pages/Lecture 4 - Classical Probability, Complement and Addition Rules, Counting.html"
+                 },
+                 {
+                     "label":  "Lecture 5 · Permutations, Combinations, Conditional Probability",
+                     "file":  "pages/Lecture 5 - Counting, Permutations, Combinations and Conditional Probability.html"
+                 },
+                 {
+                     "label":  "Lecture 6 · Independence and Trees",
+                     "file":  "pages/Lecture 6 - Conditional Probability, Independence and Tree Diagrams.html"
+                 }
+             ]
+}

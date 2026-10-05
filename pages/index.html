@@ -1,0 +1,157 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>MATH 2260 lecture notes</title><meta name="color-scheme" content="light dark">
+<style>:root{--bg:#f6f4ef;--card:#fffdf9;--ink:#1d2330;--muted:#5f6675;--line:#e4dfd3;--accent:#2f5fd0;--soft:#efece4;
+--c-u:#0a8f63;--c-v:#6a4be0;--c-proj:#e07a00;--c-res:#d0364f;--c-surf:#1f6fd1;--c-ang:#c2410c;--c-axis:#8b919c;
+--thm:#2f5fd0;--thm-bg:#edf2fd;--def:#0a8f63;--def-bg:#e9f6f0;--ex:#c98a00;--ex-bg:#fdf5e1;--typed:#7c8494;--typed-bg:#f1efe9;
+--added:#7c3aed;--add-bg:#f3edfd;--exam:#c2335a;--exam-bg:#fdeef2;--shadow:0 1px 2px rgba(30,25,10,.06),0 6px 22px rgba(30,25,10,.06)}
+@media (prefers-color-scheme:dark){:root{--bg:#12151b;--card:#1a1f28;--ink:#e8eaf0;--muted:#a2a9b8;--line:#2b3240;--accent:#86a8ff;--soft:#222834;
+--c-u:#3ddc9c;--c-v:#a892ff;--c-proj:#ffab40;--c-res:#ff7088;--c-surf:#6cb2ff;--c-ang:#ff9d66;--c-axis:#7b8494;
+--thm:#86a8ff;--thm-bg:#1b2438;--def:#3ddc9c;--def-bg:#15291f;--ex:#f1b942;--ex-bg:#2a2414;--typed:#8a93a6;--typed-bg:#20252f;
+--added:#b794ff;--add-bg:#251d38;--exam:#ff7d9d;--exam-bg:#2e1921;--shadow:0 1px 2px rgba(0,0,0,.4),0 6px 22px rgba(0,0,0,.28)}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:70px;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.62 Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;overflow-x:hidden}
+.wrap{max-width:1240px;margin:0 auto;padding:0 20px}
+a{color:var(--accent)}
+header.top{padding:44px 0 8px}
+.crumbs{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.crumbs a{text-decoration:none;font-weight:700}
+h1{font:700 clamp(34px,5.4vw,62px)/1.06 Georgia,"Times New Roman",serif;margin:14px 0 16px;letter-spacing:-.01em}
+h1 .num{color:var(--accent)}
+.lede{font-size:clamp(18px,2.1vw,22px);color:var(--muted);max-width:780px;margin:0 0 18px;line-height:1.55}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 18px}
+.pill{background:var(--card);border:1px solid var(--line);border-radius:999px;padding:6px 15px;font-size:15px;color:var(--muted)}
+.pill b{color:var(--ink)}
+.key{display:grid;grid-template-columns:repeat(4,1fr);gap:8px 26px;background:var(--card);border:1px solid var(--line);border-radius:16px;padding:18px 22px;font-size:15.5px;color:var(--muted);line-height:1.5}
+.key b{color:var(--ink)} .key .ka b{color:var(--added)}
+nav.bar{position:sticky;top:0;z-index:30;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-bottom:1px solid var(--line);margin-top:22px}
+nav.bar .wrap{display:flex;gap:9px;overflow-x:auto;padding-top:9px;padding-bottom:9px;scrollbar-width:thin}
+nav.bar a{flex:0 0 auto;text-decoration:none;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:999px;padding:5px 14px;font-size:15px;white-space:nowrap}
+nav.bar a:hover{border-color:var(--accent);color:var(--accent)}
+section.sec{padding-top:34px}
+h2{font:700 clamp(25px,3vw,33px)/1.2 Georgia,serif;margin:0 0 16px}
+h2 .sn{color:var(--accent);margin-right:.35em}
+h3{font:700 20px/1.3 Georgia,serif;margin:22px 0 8px}
+h4{font-size:16px;margin:16px 0 4px}
+.block{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:18px;align-items:start;margin-bottom:18px}
+.block.nophoto{grid-template-columns:minmax(0,1fr)}
+.main{background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px;min-width:0}
+.main>*:first-child{margin-top:0}.main>*:last-child{margin-bottom:0}
+.photos{position:sticky;top:62px;display:flex;flex-direction:column;gap:12px;max-height:calc(100vh - 72px);overflow-y:auto;scrollbar-width:thin;padding-bottom:4px}
+.photo{margin:0;background:var(--card);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;flex:0 0 auto}
+.photo img{display:block;width:100%;height:auto;max-height:270px;object-fit:contain;background:#d9dbe0;cursor:zoom-in}
+.photo figcaption{font-size:12.5px;line-height:1.4;color:var(--muted);padding:7px 10px 9px}
+.photo figcaption b{color:var(--ink)}
+p{margin:0 0 12px}
+ul,ol{margin:0 0 12px;padding-left:1.35em}li{margin:3px 0}
+.card{border-left:4px solid var(--thm);background:var(--thm-bg);border-radius:10px;padding:13px 17px 13px;margin:14px 0}
+.card>*:last-child{margin-bottom:0}
+.clabel{font-size:12.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--thm);margin-bottom:6px}
+.clabel .ct{letter-spacing:.02em;text-transform:none;font-size:15px;color:var(--ink);font-weight:700;margin-left:.5em}
+.c-def{border-color:var(--def);background:var(--def-bg)}.c-def>.clabel{color:var(--def)}
+.c-ex{border-color:var(--ex);background:var(--ex-bg)}.c-ex>.clabel{color:var(--ex)}
+.c-typed{border-color:var(--typed);background:var(--typed-bg)}.c-typed>.clabel{color:var(--typed)}
+.c-add{border-color:var(--added);background:var(--add-bg);font-size:16px;line-height:1.58}.c-add>.clabel{color:var(--added)}
+.c-exam{border-color:var(--exam);background:var(--exam-bg)}.c-exam>.clabel{color:var(--exam)}
+.card .card{margin:10px 0}
+.pencil{font-size:14px}
+.boxed{border:2px solid var(--accent);background:color-mix(in srgb,var(--accent) 7%,var(--card));border-radius:10px;padding:10px 16px;margin:14px 0;text-align:center}
+.boxed>*:last-child{margin-bottom:0}
+.term{text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:2px}
+.ul{text-decoration:underline;text-underline-offset:3px}
+.redink{color:var(--c-res);font-weight:600}
+.blueink{color:var(--c-surf);font-weight:600}
+.greenink{color:var(--c-u);font-weight:600}
+.mi svg{display:inline-block;overflow:visible}
+.md{display:block;text-align:center;margin:10px 0 12px;overflow-x:auto;overflow-y:hidden;padding:3px 0;max-width:100%}
+.md svg{max-width:none}
+.figure{margin:16px 0}
+.figbox{display:flex;justify-content:center;gap:14px;flex-wrap:wrap;align-items:flex-end}
+svg.fig{width:100%;height:auto;display:block;font-family:inherit}
+svg.fig text{font-family:Inter,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+svg.fig text.mono{font-family:ui-monospace,Menlo,Consolas,monospace}
+figcaption{font-size:14px;color:var(--muted);margin-top:8px;line-height:1.45}
+.figure figcaption b{color:var(--ink);font-weight:600}
+.row{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:14px;align-items:start;margin:12px 0}
+.row>div{min-width:0}
+.side{display:grid;grid-template-columns:minmax(200px,5fr) minmax(0,6fr);gap:20px;align-items:center;margin:12px 0}
+.side>div{min-width:0}
+.scroll{overflow-x:auto;max-width:100%;margin:10px 0 14px}
+table.tbl{border-collapse:collapse;font-size:15.5px;min-width:260px}
+.tbl th,.tbl td{border-bottom:1px solid var(--line);padding:6px 14px;text-align:left;vertical-align:top}
+.tbl th{font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--line)}
+.tbl.num td,.tbl.num th{text-align:center}
+.tbl.board td:first-child,.tbl.board th:first-child{border-right:2px solid var(--line)}
+pre.mono,.mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace}
+pre.mono{font-size:14px;line-height:1.5;background:color-mix(in srgb,var(--ink) 5%,transparent);border-radius:8px;padding:10px 14px;margin:0;white-space:pre}
+.aside{font-size:14.5px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px}
+details.reveal{border:1px dashed var(--added);border-radius:10px;padding:8px 14px;margin:10px 0}
+details.reveal summary{cursor:pointer;font-weight:700;color:var(--added)}
+details.reveal>div{margin-top:10px}
+.try{border:1.5px solid var(--line);border-radius:14px;padding:14px 16px;margin:16px 0;background:color-mix(in srgb,var(--accent) 4%,var(--card))}
+.trylabel{font-size:12.5px;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+.tryintro{font-size:15px;color:var(--muted);margin-bottom:8px}
+.widget{min-height:60px}
+.widget svg{width:100%;height:auto;display:block;touch-action:manipulation}
+.wctl{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:center;margin:8px 0;font-size:15px}
+.wctl label{display:flex;align-items:center;gap:8px;flex:1 1 230px;min-width:0}
+.wctl input[type=range]{flex:1 1 auto;min-width:90px;accent-color:var(--accent)}
+.wctl button,.wbtn{font:inherit;font-size:14.5px;border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:5px 13px;cursor:pointer}
+.wctl button.on,.wbtn.on{background:var(--accent);border-color:var(--accent);color:#fff}
+@media (prefers-color-scheme:dark){.wctl button.on,.wbtn.on{color:#0c1220}}
+.wout{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:8px;margin-top:10px}
+.wout div{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:6px 10px;font-size:13px;color:var(--muted);line-height:1.35}
+.wout div b{display:block;font-size:17px;color:var(--ink);font-variant-numeric:tabular-nums}
+.wnote{font-size:14.5px;color:var(--muted);margin:8px 0 0}
+.printnote{display:none;font-size:13px;color:var(--muted)}
+.glance{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:12px}
+.gcard{background:var(--card);border-radius:12px;box-shadow:var(--shadow);padding:12px 14px;min-width:0}
+.gwide{grid-column:span 2}
+@media (max-width:620px){.gwide{grid-column:auto}}
+.gcard .gt{font-size:12.5px;font-weight:800;letter-spacing:.09em;text-transform:uppercase;color:var(--accent);margin-bottom:4px}
+.gcard .md{margin:6px 0 2px}.gcard p{font-size:15px;margin:4px 0 0}
+footer{color:var(--muted);font-size:14px;border-top:1px solid var(--line);margin-top:40px;padding:22px 0 60px}
+#lb{position:fixed;inset:0;background:rgba(10,12,16,.9);display:none;align-items:center;justify-content:center;z-index:100;cursor:zoom-out;padding:14px;flex-direction:column;gap:10px}
+#lb.on{display:flex}
+#lb img{max-width:100%;max-height:calc(100% - 44px);object-fit:contain;border-radius:6px;background:#fff}
+#lb div{color:#e8eaf0;font-size:14px;text-align:center;max-width:900px}
+@media (max-width:900px){
+ .block{grid-template-columns:minmax(0,1fr)}
+ .photos{position:static;max-height:none;overflow:visible;display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}
+ .key{grid-template-columns:1fr 1fr}
+ .side{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:520px){body{font-size:16px}.wrap{padding:0 13px}.main{padding:15px 14px}.key{grid-template-columns:1fr}.card{padding:11px 13px}}
+@media print{
+ nav.bar,.wctl,#lb{display:none!important}.printnote{display:block}
+ body{background:#fff;font-size:11.5pt}.main,.photo,.gcard{box-shadow:none;border:1px solid #ddd}
+ .photos{position:static;max-height:none;overflow:visible}
+ .card,.figure,.photo,.gcard,.try,.boxed{break-inside:avoid}
+ .block{grid-template-columns:minmax(0,1fr) 200px}
+}
+
+.bookref{font-size:14.5px;line-height:1.5;color:var(--muted);border-top:1px dashed var(--line);padding-top:9px;margin:14px 0 0}
+.bookref+.bookref{border-top:0;padding-top:0;margin-top:6px}
+.bookref b{color:var(--added)}
+
+.igrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px;margin-top:26px}
+.icard{display:block;background:var(--card);border-radius:16px;box-shadow:var(--shadow);padding:20px 22px;text-decoration:none;color:var(--ink);border:1px solid transparent}
+.icard:hover{border-color:var(--accent)}
+.inum{font:700 30px/1 Georgia,serif;color:var(--accent)}
+.icard h2{font-size:21px;margin:8px 0 8px}
+.itop{font-size:15px;color:var(--muted);margin:0 0 12px;line-height:1.5}
+.imeta{display:flex;flex-wrap:wrap;gap:6px}.imeta span{font-size:12.5px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted)}
+@media (max-width:520px){.igrid{grid-template-columns:1fr}}
+</style></head><body><header class="top"><div class="wrap">
+<div class="crumbs">MATH 2260 · Probability and Statistics for Science and Engineering · Douglas College · Fall 2026</div>
+<h1><span class="num">MATH 2260</span> lecture notes</h1>
+<p class="lede">One study page per lecture. Everything on the boards is typed out, every sketch is redrawn, and the original photos sit beside the text. Textbook: Devore, 9th edition.</p>
+<div class="pills"><span class="pill"><b>6</b> lectures</span><span class="pill"><b>78</b> PDF pages</span><span class="pill"><b>214</b> original images</span></div>
+</div></header><main class="wrap"><div class="igrid">
+<a class="icard" href="Lecture%201%20-%20Sampling,%20Types%20of%20Data%20and%20Frequency%20Distributions.html"><div class="inum">Lecture 1</div><h2>Sampling, Types of Data and Frequency Distributions</h2><p class="itop">Population and sample · simple random samples and other sampling techniques · inferential vs descriptive · discrete vs continuous · frequency and relative frequency tables · dot plots and histograms</p><div class="imeta"><span>Wednesday, September 9, 2026</span><span>Devore §1.1–1.2</span><span>13 pages</span><span>36 images</span></div></a>
+<a class="icard" href="Lecture%202%20-%20Shapes%20of%20Distributions,%20Mean,%20Median%20and%20Standard%20Deviation.html"><div class="inum">Lecture 2</div><h2>Shapes of Distributions, the Mean, the Median and the Standard Deviation</h2><p class="itop">Unimodal, bimodal, symmetric, bell shaped, skewed · mean μ and x̄ · median x̃ · parameter vs statistic · mode · variance and standard deviation · shortcut formula for s² · outliers beyond 2 standard deviations</p><div class="imeta"><span>Monday, September 14, 2026</span><span>Devore §1.2–1.4</span><span>11 pages</span><span>31 images</span></div></a>
+<a class="icard" href="Lecture%203%20-%20Quartiles,%20Box%20Plots,%20Sets%20and%20Probability%20Axioms.html"><div class="inum">Lecture 3</div><h2>Range, Quartiles and Box Plots; Sets, Sample Spaces and the Probability Axioms</h2><p class="itop">Range · quartiles Q₁ and Q₃ · IQR (fourth spread) · five-number summary · 1.5 × IQR outlier rule · box plots · union, intersection, complement, set difference · sample space and events · the probability axioms · classical probability</p><div class="imeta"><span>Wednesday, September 16, 2026</span><span>Devore §1.4, §2.1–2.2</span><span>13 pages</span><span>34 images</span></div></a>
+<a class="icard" href="Lecture%204%20-%20Classical%20Probability,%20Complement%20and%20Addition%20Rules,%20Counting.html"><div class="inum">Lecture 4</div><h2>Classical Probability, the Complement and Addition Rules, and the Multiplication Rule for Counting</h2><p class="itop">The axioms · classical probability P(E) = n(E)/n(S) · three coins · complement rule · addition rule for two events · Venn diagrams with probabilities · addition rule for three events · multiplication rule for counting · tree diagrams</p><div class="imeta"><span>Monday, September 21, 2026</span><span>Devore §2.2–2.3</span><span>13 pages</span><span>33 images</span></div></a>
+<a class="icard" href="Lecture%205%20-%20Counting,%20Permutations,%20Combinations%20and%20Conditional%20Probability.html"><div class="inum">Lecture 5</div><h2>Counting: the Addition Rule, Permutations and Combinations; Conditional Probability</h2><p class="itop">Addition rule for counting · paths in a tree · 7-digit phone numbers · arranging interviews · permutations P(k,n) = n!/(n−k)! · combinations n choose k · lottery 6/49 · one pair in poker · conditional probability P(B|A)</p><div class="imeta"><span>Wednesday, September 23, 2026</span><span>Devore §2.3–2.4</span><span>11 pages</span><span>30 images</span></div></a>
+<a class="icard" href="Lecture%206%20-%20Conditional%20Probability,%20Independence%20and%20Tree%20Diagrams.html"><div class="inum">Lecture 6</div><h2>Conditional Probability, Independence, the Multiplication Rule and Tree Diagrams</h2><p class="itop">P(A|B) = P(A∩B)/P(B) · two dice, red and green · independent events · three ways to check independence · general multiplication rule · mutually independent events · tree diagrams · sampling without replacement · the 5% rule</p><div class="imeta"><span>Monday, September 28, 2026</span><span>Devore §2.4–2.5</span><span>17 pages</span><span>50 images</span></div></a>
+</div><footer>Built from the OneNote PDF exports “Lecture 1.pdf” to “Lecture 6.pdf”. Original images are in <span class="mono">original-images/</span>. If a typed line ever disagrees with a photo, trust the photo.</footer></main></body></html>
