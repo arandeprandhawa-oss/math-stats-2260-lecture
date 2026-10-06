@@ -79,7 +79,7 @@ function show() {
   openLink.href = t.file;
   tabs.forEach(x => { x.el.setAttribute('aria-selected', x === t); x.el.tabIndex = x === t ? 0 : -1; });
   t.el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
-  document.title = t.label + ' · ' + SITE;
+  document.title = t.label + ' \u00b7 ' + SITE;
 }
 // Slider under the tabs: appears only when the tabs don't all fit
 function syncSlide() {

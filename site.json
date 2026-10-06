@@ -2,6 +2,7 @@
     "title":  "Math stats 2260 lecture",
     "layout":  "tabs",
     "zoom":  60,
+    "index":  "pages/index.html",
     "url":  "https://arandeprandhawa-oss.github.io/math-stats-2260-lecture/",
     "tabs":  [
                  {
