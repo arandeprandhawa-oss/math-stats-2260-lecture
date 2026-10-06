@@ -31,6 +31,10 @@
                  {
                      "label":  "Lecture 6 · Independence and Trees",
                      "file":  "pages/Lecture 6 - Conditional Probability, Independence and Tree Diagrams.html"
+                 },
+                 {
+                     "label":  "Lecture 7 · Bayes, pmf and cdf",
+                     "file":  "pages/Lecture 7 - Bayes Theorem Random Variables pmf and cdf.html"
                  }
              ]
 }
