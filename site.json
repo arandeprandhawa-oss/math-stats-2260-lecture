@@ -36,6 +36,10 @@
                  {
                      "label":  "Lecture 7 · Bayes, pmf and cdf",
                      "file":  "pages/Lecture 7 - Bayes Theorem Random Variables pmf and cdf.html"
+                 },
+                 {
+                     "label":  "Lecture 8 · Expected Value and Variance",
+                     "file":  "pages/Lecture 8 - Expected Value Variance and Rules for E and V.html"
                  }
              ]
 }
