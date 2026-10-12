@@ -46,7 +46,7 @@ iframe{flex:1;width:100%;border:0;background:#fff}
 <iframe id="frame" title="Page content"></iframe>
 <script>
 const SITE = "Math stats 2260 lecture";
-const tabs = [{"label":"MATH 2260 lecture notes","slug":"math-2260-lecture-notes","file":"pages/index.html"},{"label":"Lecture 1 · Sampling and Data","slug":"lecture-1-sampling-and-data","file":"pages/Lecture%201%20-%20Sampling%2C%20Types%20of%20Data%20and%20Frequency%20Distributions.html"},{"label":"Lecture 2 · Shape, Center and Spread","slug":"lecture-2-shape-center-and-spread","file":"pages/Lecture%202%20-%20Shapes%20of%20Distributions%2C%20Mean%2C%20Median%20and%20Standard%20Deviation.html"},{"label":"Lecture 3 · Box Plots, Sets and Axioms","slug":"lecture-3-box-plots-sets-and-axioms","file":"pages/Lecture%203%20-%20Quartiles%2C%20Box%20Plots%2C%20Sets%20and%20Probability%20Axioms.html"},{"label":"Lecture 4 · Probability Rules and Counting","slug":"lecture-4-probability-rules-and-counting","file":"pages/Lecture%204%20-%20Classical%20Probability%2C%20Complement%20and%20Addition%20Rules%2C%20Counting.html"},{"label":"Lecture 5 · Permutations, Combinations, Conditional Probability","slug":"lecture-5-permutations-combinations-conditional-probability","file":"pages/Lecture%205%20-%20Counting%2C%20Permutations%2C%20Combinations%20and%20Conditional%20Probability.html"},{"label":"Lecture 6 · Independence and Trees","slug":"lecture-6-independence-and-trees","file":"pages/Lecture%206%20-%20Conditional%20Probability%2C%20Independence%20and%20Tree%20Diagrams.html"},{"label":"Lecture 7 · Bayes, pmf and cdf","slug":"lecture-7-bayes-pmf-and-cdf","file":"pages/Lecture%207%20-%20Bayes%20Theorem%20Random%20Variables%20pmf%20and%20cdf.html"},{"label":"Lecture 8 · Expected Value and Variance","slug":"lecture-8-expected-value-and-variance","file":"pages/Lecture%208%20-%20Expected%20Value%20Variance%20and%20Rules%20for%20E%20and%20V.html"}];
+const tabs = [{"label":"MATH 2260 lecture notes","slug":"math-2260-lecture-notes","file":"pages/index.html","v":"2de04bc8"},{"label":"Lecture 1 · Sampling and Data","slug":"lecture-1-sampling-and-data","file":"pages/Lecture%201%20-%20Sampling%2C%20Types%20of%20Data%20and%20Frequency%20Distributions.html","v":"439f6662"},{"label":"Lecture 2 · Shape, Center and Spread","slug":"lecture-2-shape-center-and-spread","file":"pages/Lecture%202%20-%20Shapes%20of%20Distributions%2C%20Mean%2C%20Median%20and%20Standard%20Deviation.html","v":"7d641cc4"},{"label":"Lecture 3 · Box Plots, Sets and Axioms","slug":"lecture-3-box-plots-sets-and-axioms","file":"pages/Lecture%203%20-%20Quartiles%2C%20Box%20Plots%2C%20Sets%20and%20Probability%20Axioms.html","v":"283e4deb"},{"label":"Lecture 4 · Probability Rules and Counting","slug":"lecture-4-probability-rules-and-counting","file":"pages/Lecture%204%20-%20Classical%20Probability%2C%20Complement%20and%20Addition%20Rules%2C%20Counting.html","v":"d926e90a"},{"label":"Lecture 5 · Permutations, Combinations, Conditional Probability","slug":"lecture-5-permutations-combinations-conditional-probability","file":"pages/Lecture%205%20-%20Counting%2C%20Permutations%2C%20Combinations%20and%20Conditional%20Probability.html","v":"57f372d4"},{"label":"Lecture 6 · Independence and Trees","slug":"lecture-6-independence-and-trees","file":"pages/Lecture%206%20-%20Conditional%20Probability%2C%20Independence%20and%20Tree%20Diagrams.html","v":"0a0796f6"},{"label":"Lecture 7 · Bayes, pmf and cdf","slug":"lecture-7-bayes-pmf-and-cdf","file":"pages/Lecture%207%20-%20Bayes%20Theorem%20Random%20Variables%20pmf%20and%20cdf.html","v":"6ff7a6fc"},{"label":"Lecture 8 · Expected Value and Variance","slug":"lecture-8-expected-value-and-variance","file":"pages/Lecture%208%20-%20Expected%20Value%20Variance%20and%20Rules%20for%20E%20and%20V.html","v":"07e7c2df"}];
 const nav = document.getElementById('tabs');
 const frame = document.getElementById('frame');
 const openLink = document.getElementById('open');
@@ -68,19 +68,45 @@ nav.addEventListener('keydown', e => {
   n.el.focus();
   location.hash = n.slug;
 });
-function show() {
-  const h = decodeURIComponent(location.hash.slice(1));
-  const t = tabs.find(x => x.slug === h) || tabs[0];
-  if (t !== current) {
-    const url = new URL(t.file, location.href).href;
-    if (current) frame.contentWindow.location.replace(url); else frame.src = url;
-    current = t;
-  }
+tabs.forEach(t => { t.path = decodeURIComponent(new URL(t.file, location.href).pathname); });
+function mark(t) {
   openLink.href = t.file;
   tabs.forEach(x => { x.el.setAttribute('aria-selected', x === t); x.el.tabIndex = x === t ? 0 : -1; });
   t.el.scrollIntoView({ block: 'nearest', inline: 'nearest' });
   document.title = t.label + ' · ' + SITE;
 }
+function show() {
+  const h = decodeURIComponent(location.hash.slice(1));
+  const t = tabs.find(x => x.slug === h) || tabs[0];
+  if (t !== current) {
+    // ?v= changes whenever the page changes, so the browser never shows an old copy
+    const url = new URL(t.file + (t.v ? '?v=' + t.v : ''), location.href).href;
+    if (current) frame.contentWindow.location.replace(url); else frame.src = url;
+    current = t;
+  }
+  mark(t);
+}
+// A link inside a page that leads to another tab (an index card, "All lectures")
+// switches tabs instead, so the tab bar follows and the page is always the newest copy.
+frame.addEventListener('load', () => {
+  let doc, here;
+  try { doc = frame.contentDocument; here = decodeURIComponent(frame.contentWindow.location.pathname); } catch (e) { return; }
+  if (!doc) return;
+  const now = tabs.find(x => x.path === here);
+  if (now && now !== current) { current = now; history.replaceState(null, '', '#' + now.slug); mark(now); }
+  doc.addEventListener('click', e => {
+    if (e.defaultPrevented || e.button || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+    const a = e.target && e.target.closest ? e.target.closest('a[href]') : null;
+    if (!a || (a.target && a.target !== '_self') || a.hasAttribute('download')) return;
+    let u;
+    try { u = new URL(a.getAttribute('href'), doc.baseURI); } catch (err) { return; }
+    if (u.origin !== location.origin) return;
+    const hit = tabs.find(x => x.path === decodeURIComponent(u.pathname));
+    if (!hit || hit === current) return;
+    e.preventDefault();
+    location.hash = hit.slug;
+  });
+});
 // Slider under the tabs: appears only when the tabs don't all fit
 function syncSlide() {
   const max = nav.scrollWidth - nav.clientWidth;
