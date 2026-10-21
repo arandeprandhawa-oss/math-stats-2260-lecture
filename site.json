@@ -44,6 +44,10 @@
         {
             "label": "Lecture 9 · Binomial Distribution",
             "file": "pages/Lecture 9 - Binomial Distribution, Mean and Variance, Sampling Without Replacement.html"
+        },
+        {
+            "label": "Lecture 10 · Hypergeometric and Poisson",
+            "file": "pages/Lecture 10 - Hypergeometric and Poisson Distributions, Poisson Processes.html"
         }
     ]
 }
