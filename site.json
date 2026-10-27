@@ -48,6 +48,10 @@
         {
             "label": "Lecture 10 · Hypergeometric and Poisson",
             "file": "pages/Lecture 10 - Hypergeometric and Poisson Distributions, Poisson Processes.html"
+        },
+        {
+            "label": "Lecture 11 · pdf, cdf and Expected Value",
+            "file": "pages/Lecture 11 - Poisson Approximation, Probability Density Functions, cdf and Expected Value.html"
         }
     ]
 }
