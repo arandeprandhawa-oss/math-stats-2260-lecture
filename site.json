@@ -52,6 +52,10 @@
         {
             "label": "Lecture 11 · pdf, cdf and Expected Value",
             "file": "pages/Lecture 11 - Poisson Approximation, Probability Density Functions, cdf and Expected Value.html"
+        },
+        {
+            "label": "Lecture 12 · Variance and the Normal Distribution",
+            "file": "pages/Lecture 12 - Variance, Percentiles, the Normal Distribution and z-Scores.html"
         }
     ]
 }
