@@ -56,6 +56,10 @@
         {
             "label": "Lecture 12 · Variance and the Normal Distribution",
             "file": "pages/Lecture 12 - Variance, Percentiles, the Normal Distribution and z-Scores.html"
+        },
+        {
+            "label": "Lecture 13 · Exponential and Joint Distributions",
+            "file": "pages/Lecture 13 - Exponential Distribution, Poisson Link and Joint Distributions.html"
         }
     ]
 }
