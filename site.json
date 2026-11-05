@@ -60,6 +60,10 @@
         {
             "label": "Lecture 13 · Exponential and Joint Distributions",
             "file": "pages/Lecture 13 - Exponential Distribution, Poisson Link and Joint Distributions.html"
+        },
+        {
+            "label": "Lecture 14 · Covariance and Correlation",
+            "file": "pages/Lecture 14 - Independence, Covariance, Correlation and Linear Combinations.html"
         }
     ]
 }
