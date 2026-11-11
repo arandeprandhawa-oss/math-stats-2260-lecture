@@ -64,6 +64,10 @@
         {
             "label": "Lecture 14 · Covariance and Correlation",
             "file": "pages/Lecture 14 - Independence, Covariance, Correlation and Linear Combinations.html"
+        },
+        {
+            "label": "Lecture 15 · Sample Mean and the CLT",
+            "file": "pages/Lecture 15 - Sample Mean, Sampling Distributions, Central Limit Theorem and Sample Proportion.html"
         }
     ]
 }
