@@ -68,6 +68,10 @@
         {
             "label": "Lecture 15 · Sample Mean and the CLT",
             "file": "pages/Lecture 15 - Sample Mean, Sampling Distributions, Central Limit Theorem and Sample Proportion.html"
+        },
+        {
+            "label": "Lecture 16 · Normal Approximation and Estimators",
+            "file": "pages/Lecture 16 - Normal Approximation to the Binomial, Estimators, Bias and Mean Square Error.html"
         }
     ]
 }
