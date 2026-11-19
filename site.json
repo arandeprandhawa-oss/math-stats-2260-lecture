@@ -71,7 +71,11 @@
         },
         {
             "label": "Lecture 16 · Normal Approximation and Estimators",
-            "file": "pages/Lecture 16 - Normal Approximation to the Binomial, Estimators, Bias and Mean Square Error.html"
+            "file": "pages/l16-light.html"
+        },
+        {
+            "label": "Lecture 17 · Confidence Intervals",
+            "file": "pages/Lecture 17 - Mean Square Error, Confidence Intervals for a Mean and a Proportion.html"
         }
     ]
 }
